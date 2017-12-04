@@ -10,16 +10,23 @@ var componentConfig = {
 };
 
 class Upload extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
+		this.state = {
+			fileData: ""
+			,check: "false"
+		};
 	}
-	
+
 	onUpload = (files) => {
 		const reader = new FileReader();
 		const file = files[0];
 		reader.readAsDataURL(file);
+		this.state.check = "true"
 		reader.onloadend = () => {
-			console.log(file);
+			this.state.fileData = reader.result;
+			this.forceUpdate(); //forced rerender
+			console.log(reader.result);
 		}
 	}
 
@@ -30,10 +37,15 @@ class Upload extends Component {
 				<UploadField onFiles ={this.onUpload}>
 					<div>
 						Upload
+						{this.state.fileData}
+						{this.state.check}
 					</div>
 				</UploadField>
 			</div>
 		)
 	}
 }
+//<img src = {this.state.fileData} />
+
+
 export default Upload;
