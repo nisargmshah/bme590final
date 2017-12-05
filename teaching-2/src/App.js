@@ -4,15 +4,17 @@ import './App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import Upload from './Upload'
+//import Flask from '/anaconda/lib/python3.6/site-packages/';
+//app = Flask(__name__)
 
 class App extends Component {
   render() {
     return (
       <div>
-	<MuiThemeProvider>
-          <AppBar title="Melonoma Classifier" showMenuIconButton={false}/>
-	  <Upload />
-	</MuiThemeProvider>
+	     <MuiThemeProvider>
+        <AppBar title="Melonoma Classifier" showMenuIconButton={false}/>
+	      <Upload />
+	     </MuiThemeProvider>
       </div>
     );
   }

@@ -13,8 +13,10 @@ class Upload extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			fileData: ""
-			,check: "false"
+			fileData: "",
+			percentage: NaN,
+			prediction: "",
+			numImages: NaN
 		};
 	}
 
@@ -22,7 +24,7 @@ class Upload extends Component {
 		const reader = new FileReader();
 		const file = files[0];
 		reader.readAsDataURL(file);
-		this.state.check = "true"
+		//this.state.prediction  = "dying"
 		reader.onloadend = () => {
 			this.state.fileData = reader.result;
 			this.forceUpdate(); //forced rerender
@@ -38,7 +40,14 @@ class Upload extends Component {
 					<div>
 						Upload
 						{this.state.fileData}
-						{this.state.check}
+						{this.state.prediction.length > 0 &&
+        					<h5> Model Prediction: {this.state.prediction} </h5>
+						}
+						
+						<div style= { {marginTop:"300px"}} >
+							<h5>Model Accuracy: {this.state.percentage} % </h5>
+							<h5>Number of Images Classified: {this.state.numImages}</h5>
+						</div>
 					</div>
 				</UploadField>
 			</div>
