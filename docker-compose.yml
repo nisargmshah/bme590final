@@ -20,7 +20,8 @@ services:
   db:
     image: postgres:9.6
     ports:
-      - 5432:5432
+      - 5433:5432
+    environment:
+      - POSTGRES_PASSWORD=bme590
     volumes:
       - $PWD/data:/pgdata
-    environment:
