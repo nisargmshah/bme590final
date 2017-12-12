@@ -1,0 +1,9 @@
+name: lesionID
+dependencies:
+  - python=3.6
+  - numpy
+  - pytest
+  - pytest-pep8
+  - pytest-cov
+  - pandas
+  - flask
