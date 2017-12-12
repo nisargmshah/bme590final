@@ -9,7 +9,6 @@ CORS(app)
 @app.route("/upload_image", methods=['POST'])
 def lesion():
     """
-
     :return: the predicted classification of the lesion (benign or malignant)
     """
     image = request.json['fileData']
