@@ -24,4 +24,3 @@ services:
     volumes:
       - $PWD/data:/pgdata
     environment:
-      POSTGRES_PASSWORD: example
