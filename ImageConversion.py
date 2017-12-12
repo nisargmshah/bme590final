@@ -6,7 +6,8 @@ class Image:
 
     """
 
-    def __init__(self, input_image):
+    # make default image a generic image to know bad?
+    def __init__(self, input_image=" "):
         """
 
         :param image:
