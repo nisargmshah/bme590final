@@ -28,7 +28,7 @@ class Upload extends Component {
 	// getData will take in fileData and 
 
 	postRawData = () => {
-		axios.post('http://vcm-1839.vm.duke.edu:3000/upload_image', {time: this.state.fileData}).then( (response) => {
+		axios.post('http://vcm-1839.vm.duke.edu:3000/upload_image', {fileData: this.state.fileData}).then( (response) => {
 			console.log(response)
 		});
 	}
@@ -48,17 +48,26 @@ class Upload extends Component {
 	render() {
 		return(
 			<div>
-				<h2>Please upload your image to classify</h2>
+			    <div style = { {textAlign: "center"}} >
+				    <h2>Please upload your image to classify </h2>
+				</div>
 				<UploadField onFiles ={this.onUpload}>
 					<div>
-						Upload
-						<img src = {this.state.fileData} />
+					    <div style = {{textAlign: "center"}} >
+						    Click Here to Upload an Image
+						</div>
+						<div style = {{textAlign: "center"}} >
+                            <img src = {this.state.fileData} />
+                        </div>
 						{this.state.prediction.length > 0 &&
-        					<h5> Model Prediction: {this.state.prediction} </h5>
+						    <div style = {{textAlign: "center"}} >
+        					    Model Prediction: {this.state.prediction}
+        					</div>
 						}
+
 						{this.postRawData({fileData:this.state.fileData})}
 
-						<div style= { {marginTop:"200px"}} >
+						<div style= { {marginTop:"150px", textAlign: "center"}} >
 							<h5>Model Accuracy: {this.state.percentage} % </h5>
 							<h5>Number of Images Classified: {this.state.numImages}</h5>
 						</div>
