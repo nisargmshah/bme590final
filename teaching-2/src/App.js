@@ -12,8 +12,10 @@ class App extends Component {
     return (
       <div>
 	     <MuiThemeProvider>
-        <AppBar title="BME590: Melonoma Classifier" showMenuIconButton={false} titleStyle={{textAlign: "center"}}/>
-	      <Upload />
+	        <div>
+                <AppBar title="BME590: Melonoma Classifier" showMenuIconButton={false} titleStyle={{textAlign: "center"}}/>
+	            <Upload />
+	        </div>
 	     </MuiThemeProvider>
       </div>
     );
