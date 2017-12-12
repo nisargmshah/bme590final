@@ -7,3 +7,4 @@ dependencies:
   - pytest-cov
   - pandas
   - flask
+  - flask-cors
