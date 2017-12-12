@@ -1,0 +1,7 @@
+name: bme590final
+dependencies:
+  - python=3.6
+  - pytest
+  - pep8
+  - postgresql
+  - psycopg2

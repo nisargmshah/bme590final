@@ -1,0 +1,94 @@
+LOG:  database system was shut down at 2017-11-30 21:46:13 EST
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2017-11-30 21:47:46 EST
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  role "usr" does not exist
+FATAL:  database "melanoma_classificationDB" does not exist
+FATAL:  database "melanoma_classificationDB" does not exist
+ERROR:  database "nms" already exists
+STATEMENT:  CREATE DATABASE nms;
+ERROR:  database "nms" already exists
+STATEMENT:  CREATE DATABASE nms;
+ERROR:  syntax error at end of input at character 115
+STATEMENT:  CREATE TABLE melanoma_images(Image_Id INTEGER PRIMARY KEY, Model_Prediction VARCHAR(10), Actual_Result VARCHAR(10)
+ERROR:  syntax error at or near ";" at character 115
+STATEMENT:  CREATE TABLE melanoma_images(Image_Id INTEGER PRIMARY KEY, Model_Prediction VARCHAR(10), Actual_Result VARCHAR(10);
+ERROR:  type "datetime" does not exist at character 92
+STATEMENT:  CREATE TABLE web_client_users(User_Id INTEGER PRIMARY KEY, Image_Id INTEGER, Date_Uploaded DateTime);
+ERROR:  relation "melanoma_images" already exists
+STATEMENT:  CREATE TABLE melanoma_images(Image_Id INTEGER PRIMARY KEY, Model_Prediction VARCHAR(10), Actual_Result VARCHAR(10));
+ERROR:  cannot drop the currently open database
+STATEMENT:  drop database nms
+	;
+ERROR:  unrecognized configuration parameter "l"
+STATEMENT:  show
+	l
+	;
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+LOG:  autovacuum launcher shutting down
+ERROR:  canceling statement due to user request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2017-11-30 21:59:39 EST
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  relation "melanoma_images" already exists
+STATEMENT:  CREATE TABLE melanoma_images(Image_Id INTEGER PRIMARY KEY, Model_Prediction VARCHAR(10), Actual_Result VARCHAR(10));
+ERROR:  syntax error at or near "quit" at character 1
+STATEMENT:  quit()
+	;
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+LOG:  autovacuum launcher shutting down
+ERROR:  canceling statement due to user request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2017-11-30 22:01:04 EST
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  relation "web_client_users" already exists
+STATEMENT:  CREATE TABLE web_client_users(User_Id INTEGER PRIMARY KEY, Image_Id INTEGER, Date_Uploaded TIMESTAMP);
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+LOG:  autovacuum launcher shutting down
+ERROR:  canceling statement due to user request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2017-11-30 22:01:34 EST
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  relation "melanoma_images" already exists
+STATEMENT:  CREATE TABLE melanoma_images(Image_Id INTEGER PRIMARY KEY, Model_Prediction VARCHAR(10), Actual_Result VARCHAR(10));
+FATAL:  role "dbuser" does not exist
+FATAL:  role "dbuser" does not exist
+FATAL:  role "dbuser" does not exist
+ERROR:  column "imageid" does not exist at character 8
+HINT:  Perhaps you meant to reference the column "melanoma_images.image_id".
+STATEMENT:  SELECT imageid from melanoma_images
+LOG:  statistics collector process (PID 13172) was terminated by exception 0xC000013A
+HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+LOG:  autovacuum launcher process (PID 8260) was terminated by exception 0xC000013A
+HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+LOG:  terminating any other active server processes
+LOG:  all server processes terminated; reinitializing
+LOG:  database system was interrupted; last known up at 2017-11-30 22:01:36 EST
+LOG:  startup process (PID 6096) was terminated by exception 0xC000013A
+HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+LOG:  aborting startup due to startup process failure
+^C
