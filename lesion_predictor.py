@@ -8,9 +8,11 @@ CORS(app, supports_credentials=True)
 
 @app.route("/upload_image", methods=['POST'])
 def lesion():
-    """
+    """ .. function:: lesion()
+    
+    Returns the predicted classifocation of the lesion (benign or malignant)
 
-    :return: the predicted classification of the lesion (benign or malignant)
+    :return: outputs (labels, predictions) from get_prediction method.
     """
     image = request.json['fileData']
     the below line is for testing outside the docker container only
