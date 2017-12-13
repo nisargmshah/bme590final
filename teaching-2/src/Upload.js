@@ -28,7 +28,7 @@ class Upload extends Component {
 	// getData will take in fileData and 
 
 	postRawData = () => {
-		axios.post('http://vcm-1839.vm.duke.edu:3000/upload_image', {fileData: this.state.fileData}).then( (response) => {
+		axios.post('http://vcm-1844.vm.duke.edu:8000/upload_image', {fileData: this.state.fileData}).then( (response) => {
 			console.log(response)
 		});
 	}
