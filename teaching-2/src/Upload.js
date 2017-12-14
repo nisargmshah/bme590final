@@ -44,8 +44,7 @@ class Upload extends Component {
 	postRawData = () => {
 		axios.post('http://vcm-1844.vm.duke.edu:8000/upload_image', {fileData: this.state.fileData}).then( (response) => {
 			console.log(response)
-			this.state.response_output = console.log(response)
-
+			this.setState({prediction: console.log(response)})
 		});
 	}
 
@@ -54,7 +53,6 @@ class Upload extends Component {
 		const file = files[0];
 		reader.readAsDataURL(file);
 		this.setState({total_count: this.state.total_count+1});
-		this.state.prediction  = "benign";
 		reader.onloadend = () => {
 		    if(this.state.prediction == "benign") {
 		        this.setState({benign_count: this.state.benign_count+1});
@@ -85,7 +83,6 @@ class Upload extends Component {
 						{this.state.prediction.length > 0 &&
 						    <div style = {{textAlign: "center"}} >
         					    Model Prediction: {this.state.prediction}
-        					    {this.state.response_output}
         					</div>
 						}
 
