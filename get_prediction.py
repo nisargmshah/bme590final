@@ -27,6 +27,10 @@ import numpy as np
 import tensorflow as tf
 
 def load_graph(model_file):
+    """ .. function:: load_graph(model_file)
+
+   Returns a TensorFlow dataflow graph.
+   """
   graph = tf.Graph()
   graph_def = tf.GraphDef()
 
@@ -38,7 +42,16 @@ def load_graph(model_file):
   return graph
 
 def read_tensor(t, input_height=299, input_width=299,
-				input_mean=0, input_std=255): 
+				input_mean=0, input_std=255):
+    """ .. function:: read_tensor(t, input_height=299,input_width-299,input_mean=0,input_std=255)
+
+    Returns normailzed Session object of resized image.
+
+    :param input_height: specifies height of input image
+    :param input_width: specifies width of input image
+    :param input_mean: specifies mean of input image for use in normalization
+    :param input_std: specifies standard deviation of input image
+    """
   image_reader = tf.convert_to_tensor(t)
   float_caster = tf.cast(image_reader, tf.float32)
   dims_expander = tf.expand_dims(float_caster, 0);
@@ -49,6 +62,11 @@ def read_tensor(t, input_height=299, input_width=299,
   return result
 
 def load_labels(label_file):
+    """.. function:: load_labels(label_file)
+
+    Loads text file containing labels for classification categories.
+    :param label_file: file with labels
+    """
   label = []
   proto_as_ascii_lines = tf.gfile.GFile(label_file).readlines()
   for l in proto_as_ascii_lines:
@@ -57,6 +75,13 @@ def load_labels(label_file):
 
 # TODO: cleanup and docs
 def get_prediction(image_matrix):
+    """ .. function:: get_prediction(image_matrix)
+
+    Returns results from prediction based on TensorFlow model.
+    :param image_matrix: matrix representing image to be classified
+    :return labels: the categories being used for classification
+    :return results: confidence that each label is present in the image
+    """
   model_file = "pretrained_inception_net/retrained_graph_2.pb"
   label_file = "pretrained_inception_net/retrained_labels.txt"
   input_height = 299
