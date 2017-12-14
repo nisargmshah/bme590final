@@ -4,10 +4,9 @@ from get_prediction import get_prediction
 from ImageConversion import Image
 
 app = Flask(__name__)
-CORS(app, support_credentials=True, allow_headers = ["Access-Control-Allow-Credentials"])
+CORS(app)
 
 @app.route("/upload_images", methods=['POST'])
-@cross_origin(supports_credentials=True)
 def lesion():
     """
 
@@ -17,8 +16,6 @@ def lesion():
     #the below line is for testing outside the docker container only
     predictions = image
     #lesion_image = Image(input_image=image)
-    #(labels, predictions) = get_prediction(lesion_image.bin_from_64())
+    #(labels, predictions) = get_prediction(lesion_image.print2())
     return jsonify(predictions)
 
-if __name__ == "__main__":
-    app.run(port=5000, host="0.0.0.0")
