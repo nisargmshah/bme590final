@@ -2,9 +2,9 @@ import base64
 
 
 class Image:
-    """This is the main calling class.
+    """Sets the Image class.
 
-	__init__ sets the input_image.
+	__init__ sets input_image for conversion before sending to server.
 
     """
 
