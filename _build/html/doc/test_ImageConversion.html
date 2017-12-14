@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>test_ImageConversion module &#8212; bme590final  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-test_ImageConversion">
+<span id="test-imageconversion-module"></span><h1>test_ImageConversion module<a class="headerlink" href="#module-test_ImageConversion" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="test_ImageConversion.TestImageConversion">
+<em class="property">class </em><code class="descclassname">test_ImageConversion.</code><code class="descname">TestImageConversion</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#test_ImageConversion.TestImageConversion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></code></p>
+<p>Unit tests for the image conversion class</p>
+<dl class="method">
+<dt id="test_ImageConversion.TestImageConversion.test_nonstringinput">
+<code class="descname">test_nonstringinput</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_ImageConversion.TestImageConversion.test_nonstringinput" title="Permalink to this definition">¶</a></dt>
+<dd><p>This test ensures a TypeError is raised when the class is instantiated with a non-string input parameter
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_ImageConversion.TestImageConversion.test_validinput">
+<code class="descname">test_validinput</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_ImageConversion.TestImageConversion.test_validinput" title="Permalink to this definition">¶</a></dt>
+<dd><p>This test ensures an instance of the class can receive a base64 string input parameter
+and return its image in base64 format
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_ImageConversion.TestImageConversion.test_validinput_decoded">
+<code class="descname">test_validinput_decoded</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_ImageConversion.TestImageConversion.test_validinput_decoded" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_ImageConversion.TestImageConversion.test_wrongstringinput">
+<code class="descname">test_wrongstringinput</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_ImageConversion.TestImageConversion.test_wrongstringinput" title="Permalink to this definition">¶</a></dt>
+<dd><p>This test ensures a ValueError is instantiated with a string input parameter that isn&#8217;t recognized as base64
+:return: True if ValueError raised with input designed to meet ValueError criteria</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/doc/test_ImageConversion.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Josh, Nisarg, Garren, Ryan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/doc/test_ImageConversion.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

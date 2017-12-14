@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>get_prediction module &#8212; bme590final  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-get_prediction">
+<span id="get-prediction-module"></span><h1>get_prediction module<a class="headerlink" href="#module-get_prediction" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="get_prediction.get_prediction">
+<code class="descclassname">get_prediction.</code><code class="descname">get_prediction</code><span class="sig-paren">(</span><em>image_matrix</em><span class="sig-paren">)</span><a class="headerlink" href="#get_prediction.get_prediction" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="function">
+<dt>
+<code class="descclassname">get_prediction.</code><code class="descname">get_prediction</code><span class="sig-paren">(</span><em>image_matrix</em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<p>Returns results from prediction based on TensorFlow model.
+:param image_matrix: matrix representing image to be classified
+:return labels: the categories being used for classification
+:return results: confidence that each label is present in the image</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="get_prediction.load_graph">
+<code class="descclassname">get_prediction.</code><code class="descname">load_graph</code><span class="sig-paren">(</span><em>model_file</em><span class="sig-paren">)</span><a class="headerlink" href="#get_prediction.load_graph" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="function">
+<dt>
+<code class="descclassname">get_prediction.</code><code class="descname">load_graph</code><span class="sig-paren">(</span><em>model_file</em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<p>Returns a TensorFlow dataflow graph.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="get_prediction.load_labels">
+<code class="descclassname">get_prediction.</code><code class="descname">load_labels</code><span class="sig-paren">(</span><em>label_file</em><span class="sig-paren">)</span><a class="headerlink" href="#get_prediction.load_labels" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="function">
+<dt>
+<code class="descclassname">get_prediction.</code><code class="descname">load_labels</code><span class="sig-paren">(</span><em>label_file</em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<p>Loads text file containing labels for classification categories.
+:param label_file: file with labels</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="get_prediction.read_tensor">
+<code class="descclassname">get_prediction.</code><code class="descname">read_tensor</code><span class="sig-paren">(</span><em>t</em>, <em>input_height=299</em>, <em>input_width=299</em>, <em>input_mean=0</em>, <em>input_std=255</em><span class="sig-paren">)</span><a class="headerlink" href="#get_prediction.read_tensor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="function">
+<dt>
+<code class="descclassname">get_prediction.</code><code class="descname">read_tensor</code><span class="sig-paren">(</span><em>t</em>, <em>input_height=299</em>, <em>input_width-299</em>, <em>input_mean=0</em>, <em>input_std=255</em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<p>Returns normailzed Session object of resized image.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>input_height</strong> &#8211; specifies height of input image</li>
+<li><strong>input_width</strong> &#8211; specifies width of input image</li>
+<li><strong>input_mean</strong> &#8211; specifies mean of input image for use in normalization</li>
+<li><strong>input_std</strong> &#8211; specifies standard deviation of input image</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/doc/get_prediction.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Josh, Nisarg, Garren, Ryan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/doc/get_prediction.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
