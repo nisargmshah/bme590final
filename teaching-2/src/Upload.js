@@ -80,7 +80,7 @@ class Upload extends Component {
 						    Click Here to Upload an Image
 						</div>
 						<div style = {{textAlign: "center"}} >
-                            <img src = {this.state.fileData} />
+                            <img src = {this.state.fileData} height="200" width="200"/>
                         </div>
 						{this.state.prediction.length > 0 &&
 						    <div style = {{textAlign: "center"}} >
