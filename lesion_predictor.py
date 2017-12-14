@@ -12,7 +12,19 @@ def lesion():
 
     :return: the predicted classification of the lesion (benign or malignant)
     """
-    image = str(request.json['fileData']) 	    
+    image = str(request.json['fileData'])
+    print(image)
+    index = 0
+    found = False
+    while found is False:
+        if image[index]==',':
+            image = image[index+1:len(image)]
+        else:
+            index = index + 1
+
+    for ii in range(0, len(image)):
+
+
     filename = "lesion.jpg"
     #the below line is for testing outside the docker container only
     #predictions = str(type(image))
