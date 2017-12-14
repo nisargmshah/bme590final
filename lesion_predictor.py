@@ -36,15 +36,15 @@ def lesion():
     if(predictions[0]>=predictions[1]):
         result = "benign"
     else:
-	result = "malignant"
+	   result = "malignant"
     
     try:
-	con = psycopg2.connect("dbname='bme590' user='postgres' host='localhost' port=5433 password='bme590'")
+	   con = psycopg2.connect("dbname='bme590' user='postgres' host='localhost' port=5433 password='bme590'")
     except: 
-	print("Unable to connect to the database")
+	   print("Unable to connect to the database")
 
     cur = con.cursor()
-    cur.execute("""Insert into melanoma_images(Model_Prediction) VALUES (%s);""",result)
+    cur.execute("""Insert into melanoma_images(Model_Prediction) VALUES (%s);""", result)
     #cur.execute("""Select count(*) from melanoma_images where Model_Prediction == 'benign')
 
     return jsonify([result, count_benign, count_malignant])
