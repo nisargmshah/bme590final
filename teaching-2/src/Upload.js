@@ -44,7 +44,13 @@ class Upload extends Component {
 	postRawData = () => {
 		axios.post('http://vcm-1844.vm.duke.edu:8000/upload_image', {fileData: this.state.fileData}).then( (response) => {
 			console.log(response)
-			this.setState({prediction: console.log(response)})
+			this.setState({prediction: response.data});
+			if(this.state.prediction == "benign") {
+                                this.setState({benign_count: this.state.benign_count+1});
+                        } 
+                        else if(this.state.prediction == "malignant") {
+                                this.setState({malignant_count: this.state.malignant_count+1});
+                        }
 		});
 	}
 
@@ -53,23 +59,17 @@ class Upload extends Component {
 		const file = files[0];
 		reader.readAsDataURL(file);
 		this.setState({total_count: this.state.total_count+1});
+                {this.postRawData({fileData:this.state.fileData})}
 		reader.onloadend = () => {
-		    if(this.state.prediction == "benign") {
-		        this.setState({benign_count: this.state.benign_count+1});
-		    }
-		    else if (this.state.prediction == "malignant") {
-		        this.setState({malignant_count: this.state.malignant_count+1});
-		    }
 			    this.setState({fileData: reader.result});
 			    console.log(reader.result);
 		    }
-		    this.forceUpdate();
 	    }
 
 	render() {
 		return(
 			<div>
-			    <div style = { {textAlign: "center"}} >
+			    <div style = { {textAlign: "left"}} >
 				    <h2>Please upload your image to classify </h2>
 				</div>
 				<UploadField onFiles ={this.onUpload}>
@@ -106,11 +106,6 @@ class Upload extends Component {
                             </TableBody>
                           </Table>
                       </div>
-
-
-						{this.postRawData({fileData:this.state.fileData})}
-
-
 					</div>
 				</UploadField>
 			</div>
