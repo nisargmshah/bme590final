@@ -80,12 +80,9 @@ class Upload extends Component {
 						<div style = {{textAlign: "center"}} >
                             <img src = {this.state.fileData} height="200" width="200"/>
                         </div>
-						//{this.state.prediction.length > 0 &&
 						<div style = {{textAlign: "center"}} >
         					    Model Prediction: {this.state.prediction}
         					</div>
-						//}
-
                         <div>
                             <Table>
                             <TableHeader
