@@ -17,9 +17,8 @@ def lesion():
     #the below line is for testing outside the docker container only
     #predictions = str(type(image))
 
-    lesion_image = Image(input_image=image, thefilename=filename)
-    lesion_image.save_image_string(file=filename)
-    lesion_image.__image = lesion_image.encode_image_string(file=filename)
-    (labels, predictions) = get_prediction(lesion_image.print2())
-    return jsonify(predictions)
+    #lesion_image = Image(input_image=image, thefilename=filename)
+    #lesion_image.save_image_string(file=filename)
+    #(labels, predictions) = get_prediction(imread(filename))
+    return jsonify(image)
 
