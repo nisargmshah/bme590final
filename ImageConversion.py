@@ -35,7 +35,7 @@ class Image:
 
     def save_image_string(self, file="example.jpg"):
         with open(self.__filename, "wb") as image_out:
-            image_out.write(base64.b64decode(file))
+            image_out.write(base64.b64decode(self.__image))
 
     def print64(self):
         return self.__image
