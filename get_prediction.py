@@ -27,87 +27,87 @@ import numpy as np
 import tensorflow as tf
 
 def load_graph(model_file):
-    """ .. function:: load_graph(model_file)
+   """ .. function:: load_graph(model_file)
 
    Returns a TensorFlow dataflow graph.
    """
-  graph = tf.Graph()
-  graph_def = tf.GraphDef()
+   graph = tf.Graph()
+   graph_def = tf.GraphDef()
 
-  with open(model_file, "rb") as f:
-    graph_def.ParseFromString(f.read())
-  with graph.as_default():
-    tf.import_graph_def(graph_def)
+   with open(model_file, "rb") as f:
+     graph_def.ParseFromString(f.read())
+   with graph.as_default():
+     tf.import_graph_def(graph_def)
 
-  return graph
+   return graph
 
 def read_tensor(t, input_height=299, input_width=299,
 				input_mean=0, input_std=255):
-    """ .. function:: read_tensor(t, input_height=299,input_width-299,input_mean=0,input_std=255)
+   """ .. function:: read_tensor(t, input_height=299,input_width-299,input_mean=0,input_std=255)
 
-    Returns normailzed Session object of resized image.
+   Returns normailzed Session object of resized image.
 
-    :param input_height: specifies height of input image
-    :param input_width: specifies width of input image
-    :param input_mean: specifies mean of input image for use in normalization
-    :param input_std: specifies standard deviation of input image
-    """
-  image_reader = tf.convert_to_tensor(t)
-  float_caster = tf.cast(image_reader, tf.float32)
-  dims_expander = tf.expand_dims(float_caster, 0);
-  resized = tf.image.resize_bilinear(dims_expander, [input_height, input_width])
-  normalized = tf.divide(tf.subtract(resized, [input_mean]), [input_std])
-  sess = tf.Session()
-  result = sess.run(normalized)
-  return result
+   :param input_height: specifies height of input image
+   :param input_width: specifies width of input image
+   :param input_mean: specifies mean of input image for use in normalization
+   :param input_std: specifies standard deviation of input image
+   """
+   image_reader = tf.convert_to_tensor(t)
+   float_caster = tf.cast(image_reader, tf.float32)
+   dims_expander = tf.expand_dims(float_caster, 0);
+   resized = tf.image.resize_bilinear(dims_expander, [input_height, input_width])
+   normalized = tf.divide(tf.subtract(resized, [input_mean]), [input_std])
+   sess = tf.Session()
+   result = sess.run(normalized)
+   return result
 
 def load_labels(label_file):
-    """.. function:: load_labels(label_file)
+   """.. function:: load_labels(label_file)
 
-    Loads text file containing labels for classification categories.
-    :param label_file: file with labels
-    """
-  label = []
-  proto_as_ascii_lines = tf.gfile.GFile(label_file).readlines()
-  for l in proto_as_ascii_lines:
-    label.append(l.rstrip())
-  return label
+   Loads text file containing labels for classification categories.
+   :param label_file: file with labels
+   """
+   label = []
+   proto_as_ascii_lines = tf.gfile.GFile(label_file).readlines()
+   for l in proto_as_ascii_lines:
+     label.append(l.rstrip())
+   return label
 
 # TODO: cleanup and docs
 def get_prediction(image_matrix):
-    """ .. function:: get_prediction(image_matrix)
+   """ .. function:: get_prediction(image_matrix)
 
-    Returns results from prediction based on TensorFlow model.
-    :param image_matrix: matrix representing image to be classified
-    :return labels: the categories being used for classification
-    :return results: confidence that each label is present in the image
-    """
-  model_file = "pretrained_inception_net/retrained_graph_2.pb"
-  label_file = "pretrained_inception_net/retrained_labels.txt"
-  input_height = 299
-  input_width = 299
-  input_mean = 128
-  input_std = 128
-  input_layer = "Mul"
-  output_layer = "final_result"
+   Returns results from prediction based on TensorFlow model.
+   :param image_matrix: matrix representing image to be classified
+   :return labels: the categories being used for classification
+   :return results: confidence that each label is present in the image
+   """
+   model_file = "pretrained_inception_net/retrained_graph_2.pb"
+   label_file = "pretrained_inception_net/retrained_labels.txt"
+   input_height = 299
+   input_width = 299
+   input_mean = 128
+   input_std = 128
+   input_layer = "Mul"
+   output_layer = "final_result"
 
-  graph = load_graph(model_file)
+   graph = load_graph(model_file)
   
-  t = read_tensor(image_matrix, input_height=input_height, input_width=input_width, input_mean=input_mean, input_std=input_std)
+   t = read_tensor(image_matrix, input_height=input_height, input_width=input_width, input_mean=input_mean, input_std=input_std)
 
-  input_name = "import/" + input_layer
-  output_name = "import/" + output_layer
-  input_operation = graph.get_operation_by_name(input_name);
-  output_operation = graph.get_operation_by_name(output_name);
+   input_name = "import/" + input_layer
+   output_name = "import/" + output_layer
+   input_operation = graph.get_operation_by_name(input_name);
+   output_operation = graph.get_operation_by_name(output_name);
 
-  with tf.Session(graph=graph) as sess:
-    start = time.time()
-    results = sess.run(output_operation.outputs[0],
+   with tf.Session(graph=graph) as sess:
+     start = time.time()
+     results = sess.run(output_operation.outputs[0],
                       {input_operation.outputs[0]: t})
-    end=time.time()
-  results = np.squeeze(results)
+     end=time.time()
+   results = np.squeeze(results)
 
-  top_k = results.argsort()[-5:][::-1]
-  labels = load_labels(label_file)
+   top_k = results.argsort()[-5:][::-1]
+   labels = load_labels(label_file)
 
-  return (labels, results)
+   return (labels, results)

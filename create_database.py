@@ -2,14 +2,14 @@ import psycopg2
 import sys
 
 con = None
-dbname = "nms"
+dbname = "bme590"
 
 try:
-	con = psycopg2.connect("dbname='nms' user='nms' host='localhost' password='bme590'")
+	con = psycopg2.connect("dbname='bme590' user='postgres' host='localhost' port=5433 password='bme590'")
 	con.autocommit = True
 	cur = con.cursor()
-	cur.execute("CREATE TABLE melanoma_images(Image_Id INTEGER PRIMARY KEY, Model_Prediction VARCHAR(10), Actual_Result VARCHAR(10));")
-	cur.execute("CREATE TABLE web_client_users(User_Id INTEGER PRIMARY KEY, Image_Id INTEGER, Date_Uploaded TIMESTAMP);")
+	cur.execute("CREATE TABLE melanoma_images(Image_Id SERIAL PRIMARY KEY, Model_Prediction VARCHAR(20));")
+
 	con.commit()
 except psycopg2.DatabaseError as e:
 	if con:
