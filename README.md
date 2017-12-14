@@ -1,4 +1,4 @@
-#BME590 Final
+# BME590 Final
 
 Integration: [![Build Status](https://travis-ci.org/nisargmshah/bme590final.svg?branch=master)](https://travis-ci.org/raspearsy/bme590hrm)
 
