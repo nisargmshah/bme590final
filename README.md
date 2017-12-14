@@ -16,6 +16,7 @@ Arjun Desai
 The link to the website can be found at vcm-1867.vm.duke.edu
 Upload a melanoma image to find out its classification as benign or malignant.
 There is a delay of 1 image before the result appears due to a React bug.
+Code for website is in WebClient branch.
 
 The virtual machine were the server is hosted at is:
 vcm-1844.vm.duke.edu
