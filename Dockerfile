@@ -1,4 +1,5 @@
 from gcr.io/tensorflow/tensorflow:latest
+RUN apt-get install python3
 RUN pip install Flask
 RUN pip install psycopg2
 RUN pip install pytest
