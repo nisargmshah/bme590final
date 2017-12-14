@@ -65,7 +65,7 @@ class Upload extends Component {
 			    this.setState({fileData: reader.result});
 			    console.log(reader.result);
 		    }
-		    this.setState({total_count: this.state.total_count+1});
+		    this.forceUpdate();
 	    }
 
 	render() {
