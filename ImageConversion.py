@@ -10,7 +10,7 @@ class Image:
 
     # make default image a generic image to know bad?
     def __init__(self, input_image=" "):
-        """ .. function:: __init__(self, input_image=" "
+        """ .. function:: __init__(self, input_image=" ")
 
         :param image: specifies the input image file
         """
