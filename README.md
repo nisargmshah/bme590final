@@ -1,4 +1,26 @@
-# bme590_melanoma_detection
+#BME590 Final
+
+Integration: [![Build Status](https://travis-ci.org/nisargmshah/bme590final.svg?branch=master)](https://travis-ci.org/raspearsy/bme590hrm)
+
+Group Members:
+Ryan Spears
+Garren Angacian
+Nisarg Shah
+Josh Khani
+
+Collaborators:
+Mark Palmeri
+Suyash Kumar
+Arjun Desai
+
+The link to the website can be found at vcm-1867.vm.duke.edu
+Upload a melanoma image to find out its classification as benign or malignant.
+There is a delay of 1 image before the result appears due to a React bug.
+
+The virtual machine were the server is hosted at is:
+vcm-1844.vm.duke.edu
+
+## bme590_melanoma_detection
 This is the starter repository for [BME590 Medical Software Design](https://github.com/mlp6/Medical-Software-Design) [final projects](https://github.com/mlp6/Medical-Software-Design/blob/master/Assignments/final_project_fall_17/final_project_f17.pdf) for Fall 2017. This repository contains:
 
 * Starter code and docker compose configuration to run a basic Flask webserver. A `get_prediction` module has been written to allow you to get predictions from the included melanoma classification model. 

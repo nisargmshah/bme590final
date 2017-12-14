@@ -11,6 +11,7 @@ CORS(app)
 con = None
 dbname = "bme590"
 
+
 @app.route("/upload_image", methods=['POST'])
 def lesion():
     """
@@ -20,20 +21,20 @@ def lesion():
     image = str(request.json['fileData'])
     index = 0
     found = False
-    while (found is False) and index<len(image):
-        if image[index]==',':
+    while (found is False) and index < len(image):
+        if image[index] == ',':
             image = image[index+1:len(image)]
         else:
             index = index + 1
 
     filename = "melanoma.jpg"
-    #the below line is for testing outside the docker container only
-    #predictions = str(lesion_image.__image)
+    # the below line is for testing outside the docker container only
+    # predictions = str(lesion_image.__image)
 
     lesion_image = Image(input_image=image, thefilename=filename)
     lesion_image.save_image_string(file=filename)
     (labels, predictions) = get_prediction(mpimg.imread(filename))
-    if(predictions[0]>=predictions[1]):
+    if predictions[0] >= predictions[1]:
         result = 'benign'
     else:
         result = 'malignant'
@@ -46,4 +47,3 @@ def lesion():
         print("Unable to connect to the database")
     finally:
         return jsonify(result)
-
