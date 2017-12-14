@@ -26,8 +26,8 @@ class Image:
         except ValueError:
             raise ValueError("Input not in base64, or incorrectly padded")
 
-        self.save_image_string(file=self.__filename)
-        self.__image = self.encode_image_string(file=self.__filename)
+        # self.save_image_string(file=self.__filename)
+        # self.__image = self.encode_image_string(file=self.__filename)
 
     def encode_image_string(self, file="example.jpg"):
         with open(file, "rb") as image_file:

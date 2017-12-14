@@ -14,11 +14,16 @@ def lesion():
     :return: the predicted classification of the lesion (benign or malignant)
     """
     image = request.json['fileData']
+    filename = "lesion"
     #the below line is for testing outside the docker container only
-    predictions = image
-    #lesion_image = Image(input_image=image)
-    #(labels, predictions) = get_prediction(lesion_image.bin_from_64())
+    #predictions = image
+
+    lesion_image = Image(input_image=image, file=filename)
+    lesion_image.save_image_string(file=lesion_image.__filename)
+    lesion_image.__image = lesion_image.encode_image_string(file=lesion_image.__filename)
+    (labels, predictions) = get_prediction(lesion_image.bin_from_64())
     return jsonify(predictions)
+
 
 if __name__ == "__main__":
     app.run(port=5000, host="0.0.0.0")
