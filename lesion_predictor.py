@@ -1,20 +1,24 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from get_prediction import get_prediction
 from ImageConversion import Image
 
 app = Flask(__name__)
-CORS(app, supports_credentials=True)
+CORS(app, support_credentials=True, allow_headers = ["Access-Control-Allow-Credentials"])
 
-@app.route("/upload_image", methods=['POST'])
+@app.route("/upload_images", methods=['POST'])
+@cross_origin(supports_credentials=True)
 def lesion():
     """
 
     :return: the predicted classification of the lesion (benign or malignant)
     """
     image = request.json['fileData']
-    the below line is for testing outside the docker container only
+    #the below line is for testing outside the docker container only
     predictions = image
-    lesion_image = Image(input_image=image)
-    (labels, predictions) = get_prediction(lesion_image.bin_from_64())
+    #lesion_image = Image(input_image=image)
+    #(labels, predictions) = get_prediction(lesion_image.bin_from_64())
     return jsonify(predictions)
+
+if __name__ == "__main__":
+    app.run(port=5000, host="0.0.0.0")
