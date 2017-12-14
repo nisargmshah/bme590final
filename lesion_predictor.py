@@ -7,7 +7,7 @@ import matplotlib.image as mpimg
 app = Flask(__name__)
 CORS(app)
 
-@app.route("/upload_images", methods=['POST'])
+@app.route("/upload_image", methods=['POST'])
 def lesion():
     """
 
