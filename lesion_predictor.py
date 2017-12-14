@@ -44,6 +44,6 @@ def lesion():
         cur.execute("""Insert into melanoma_images(Model_Prediction) Values (%s);""", result) 
     except: 
         print("Unable to connect to the database")
-
-    return jsonify(result)
+    finally:
+        return jsonify(result)
 
