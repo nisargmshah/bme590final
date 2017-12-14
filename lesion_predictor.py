@@ -3,9 +3,13 @@ from flask_cors import CORS, cross_origin
 from get_prediction import get_prediction
 from ImageConversion import Image
 import matplotlib.image as mpimg
+import psycopg2
 
 app = Flask(__name__)
 CORS(app)
+
+con = None
+dbname = "bme590"
 
 @app.route("/upload_image", methods=['POST'])
 def lesion():
@@ -30,8 +34,18 @@ def lesion():
     lesion_image.save_image_string(file=filename)
     (labels, predictions) = get_prediction(mpimg.imread(filename))
     if(predictions[0]>=predictions[1]):
-	result = "benign"
+        result = "benign"
     else:
 	result = "malignant"
-    return jsonify(result)
+    
+    try:
+	con = psycopg2.connect("dbname='bme590' user='postgres' host='localhost' port=5433 password='bme590'")
+    except: 
+	print("Unable to connect to the database")
+
+    cur = con.cursor()
+    cur.execute("""Insert into melanoma_images(Model_Prediction) VALUES (%s);""",result)
+    #cur.execute("""Select count(*) from melanoma_images where Model_Prediction == 'benign')
+
+    return jsonify([result, count_benign, count_malignant])
 
